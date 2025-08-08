@@ -226,10 +226,10 @@ class EscapeRoomGame {
         } else if (isEnter) {
             console.log('Enter button pressed');
             this.submitCode();
-        } else if (digit && this.currentCode.length < 7) {
+        } else if (digit && this.currentCode.length < 8) {
             console.log('Digit button pressed:', digit);
             this.addDigit(digit);
-        } else if (this.currentCode.length >= 7) {
+        } else if (this.currentCode.length >= 8) {
             console.log('Code is full, cannot add more digits');
         } else {
             console.log('Unknown button pressed:', buttonText);
@@ -241,7 +241,7 @@ class EscapeRoomGame {
 
         console.log('Keyboard input:', e.key);
 
-        if (e.key >= '0' && e.key <= '9' && this.currentCode.length < 7) {
+        if (e.key >= '0' && e.key <= '9' && this.currentCode.length < 8) {
             this.addDigit(e.key);
         } else if (e.key === 'Enter') {
             this.submitCode();
@@ -251,7 +251,7 @@ class EscapeRoomGame {
     }
 
     addDigit(digit) {
-        if (this.currentCode.length < 7) {
+        if (this.currentCode.length < 8) {
             this.currentCode += digit;
             console.log('Added digit:', digit, 'Current code:', this.currentCode);
             this.updateDisplay();
